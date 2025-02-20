@@ -2,25 +2,38 @@
   "name": "customer_support",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "ts": "tsc -w",
-    "start": "nodemon dist/app.js"
+    "start": "nodemon --env-file=.env dist/app.js",
+    "start:dev": "nodemon --env-file=./src/config/environment/.env.development dist/app.js",
+    "start:test": "nodemon --env-file=./src/config/environment/.env.testing dist/app.js",
+    "start:stag": "nodemon --env-file=./src/config/environment/.env.staging dist/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.750.0",
+    "@aws-sdk/client-ses": "^3.750.0",
+    "@aws-sdk/s3-request-presigner": "^3.750.0",
+    "awilix": "^12.0.4",
+    "aws-sdk": "^2.1692.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "helmet": "^8.0.0",
+    "joi": "^17.13.3",
     "morgan": "^1.10.0",
-    "pg": "^8.13.3"
+    "pg": "^8.13.3",
+    "pg-promise": "^11.10.2"
   },
   "devDependencies": {
+    "@types/aws-sdk": "^2.7.4",
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.4",
+    "@types/pg": "^8.11.11",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
